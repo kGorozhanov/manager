@@ -1,0 +1,31 @@
+<div fxFlex="100" fxLayout="column" fxLayoutAlign="start center">
+  <div class="login-card-wrap">
+    <form [formGroup]="form" (ngSubmit)="login()">
+      <md-card>
+        <md-card-title>
+          Login
+        </md-card-title>
+        <md-card-content>
+          <div>
+            <md-input-container class="md-block">
+              <input mdInput placeholder="Email" formControlName="email">
+            </md-input-container>
+            <app-control-messages [control]="form.controls.email"></app-control-messages>
+          </div>
+          <div>
+            <md-input-container class="md-block">
+              <input mdInput placeholder="Password" formControlName="password">
+            </md-input-container>
+            <app-control-messages [control]="form.controls.password"></app-control-messages>
+          </div>
+        </md-card-content>
+        <md-card-actions align="end">
+          <button md-button 
+                  color="primary" 
+                  type="submit"
+                  [disabled]="disableForm | async">Submit</button>
+        </md-card-actions>
+      </md-card>
+    </form>
+  </div>
+</div>

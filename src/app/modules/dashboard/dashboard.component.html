@@ -1,0 +1,35 @@
+<md-sidenav-container class="sidenav-container">
+  <md-sidenav #sidenav class="sidenav-menu" [mode]="menuMode" [opened]="menuOpened">
+    <nav>
+      <div class="restourants-nav" *ngIf="isManager | async">
+        <h3>Restourants</h3>
+        <ul>
+          <li *ngFor="let restourant of restourants | async">
+            <a [routerLink]="['/']">{{restourant.name}}</a>
+          </li>
+          <li>
+            <a [routerLink]="['restourants', 'new']">New</a>
+          </li>
+        </ul>
+      </div>
+    </nav>
+  </md-sidenav>
+
+  <div class="sidenav-content">
+    <md-toolbar color="primary">
+      <button md-icon-button (click)="sidenav.toggle()" class="menu-toggle">
+        <md-icon class="material-icons">&#xE5D2;</md-icon>
+      </button>
+      <span>Manager App</span>
+      <span fxFlex></span>
+      <button md-button (click)="logout()">
+        <md-icon class="material-icons">&#xE879;</md-icon>
+        Logout
+      </button>
+    </md-toolbar>
+
+
+    <router-outlet></router-outlet>
+
+  </div>
+</md-sidenav-container>
