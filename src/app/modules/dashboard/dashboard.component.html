@@ -5,10 +5,14 @@
         <h3>Restourants</h3>
         <ul>
           <li *ngFor="let restourant of restourants | async">
-            <a [routerLink]="['/']">{{restourant.name}}</a>
+            <a [routerLink]="['/']" 
+               routerLinkActive="active"
+               [routerLinkActiveOptions]="{ exact: true }">{{restourant.name}}</a>
           </li>
           <li>
-            <a [routerLink]="['restourants', 'new']">New</a>
+            <a routerLink="/restourants/new" 
+               routerLinkActive="active"
+               [routerLinkActiveOptions]="{ exact: true }">New</a>
           </li>
         </ul>
       </div>

@@ -1,9 +1,9 @@
 import { Store } from '@ngrx/store';
 import { HttpClient } from './services/http-client.service';
 import { BrowserModule } from '@angular/platform-browser';
-import { NgModule, isDevMode } from '@angular/core';
-import { HttpModule, XHRBackend, RequestOptions } from '@angular/http'; 
-import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
+import { NgModule } from '@angular/core';
+import { HttpModule, XHRBackend, RequestOptions } from '@angular/http';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { StoreModule } from '@ngrx/store';
 import { StoreDevtoolsModule } from '@ngrx/store-devtools';
 import { RouterStoreModule } from '@ngrx/router-store';
@@ -21,11 +21,9 @@ import { LoginGuard } from "app/services/login-guard.serevice";
 
 let optionalModules = [];
 
-if(isDevMode()) {
-  optionalModules.push(StoreDevtoolsModule.instrumentOnlyWithExtension({
-    maxAge: 10
-  }));
-}
+optionalModules.push(StoreDevtoolsModule.instrumentOnlyWithExtension({
+  maxAge: 10
+}));
 
 @NgModule({
   declarations: [
@@ -43,11 +41,11 @@ if(isDevMode()) {
     MdSnackBarModule
   ],
   providers: [
-		{
-			provide: HttpClient,
-			useClass: HttpClient,
-			deps: [XHRBackend, RequestOptions, Store]
-		},
+    {
+      provide: HttpClient,
+      useClass: HttpClient,
+      deps: [XHRBackend, RequestOptions, Store]
+    },
     AuthGuard,
     LoginGuard
   ],
