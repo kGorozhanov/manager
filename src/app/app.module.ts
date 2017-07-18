@@ -18,13 +18,6 @@ import { AuthGuard } from "app/services/auth-guard.service";
 import { MdSnackBarModule } from "@angular/material";
 import { LoginGuard } from "app/services/login-guard.serevice";
 
-
-let optionalModules = [];
-
-optionalModules.push(StoreDevtoolsModule.instrumentOnlyWithExtension({
-  maxAge: 10
-}));
-
 @NgModule({
   declarations: [
     AppComponent
@@ -34,7 +27,9 @@ optionalModules.push(StoreDevtoolsModule.instrumentOnlyWithExtension({
     BrowserAnimationsModule,
     HttpModule,
     StoreModule.provideStore(appReducer),
-    ...optionalModules,
+    StoreDevtoolsModule.instrumentOnlyWithExtension({
+      maxAge: 10
+    }),
     ...appEffects,
     RouterModule.forRoot(routes),
     RouterStoreModule.connectRouter(),
