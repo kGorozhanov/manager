@@ -28,7 +28,7 @@ export class AppComponent implements OnInit, OnDestroy {
       .map(items => items[0])
       .switchMap((message: Message) => {
         this.currentMessage = message;
-        const bar = this.mdSnackBar.open(message.text, null, {duration: 3000});
+        const bar = this.mdSnackBar.open(message.text, null, {duration: 1000});
         return bar.afterDismissed().map(() => message);
       })
       .subscribe((message: Message) => {

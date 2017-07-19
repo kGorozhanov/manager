@@ -35,4 +35,18 @@ export class RestourantEffects {
                     MESSAGE_ACTIONS.ADD('Error on add restourat')
                 ]));
         });
+
+    @Effect()
+    selected = this.actions
+        .ofType(RESTOURANT_CONSTANTS.LOAD_SELECTED)
+        .map(toPayload)
+        .switchMap(payload => {
+            return this.http.get(`/api/restourants/${payload}`)
+                .map(res => res.json())
+                .map(res => RESTOURANT_ACTIONS.LOAD_SELECTED_SUCCESS(res))
+                .catch(err => Observable.from([
+                    RESTOURANT_ACTIONS.LOAD_SELECTED_ERROR(),
+                    MESSAGE_ACTIONS.ADD(`Restourat with id "${payload}" not found`)
+                ]));
+        });
 }

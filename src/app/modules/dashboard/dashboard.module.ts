@@ -4,6 +4,7 @@ import { DashboardComponent } from './dashboard.component';
 import { NgModule } from '@angular/core';
 import { dashboardRoutes } from "app/modules/dashboard/dashboard.routes";
 import { RestourantsCreateComponent } from './components/restourants-create/restourants-create.component';
+import { RestourantDetailComponent } from './components/restourant-detail/restourant-detail.component';
 
 @NgModule({
     imports: [
@@ -12,7 +13,8 @@ import { RestourantsCreateComponent } from './components/restourants-create/rest
     ],
     declarations: [
         DashboardComponent,
-        RestourantsCreateComponent
+        RestourantsCreateComponent,
+        RestourantDetailComponent
     ]
 })
 export class DashboardModule {}

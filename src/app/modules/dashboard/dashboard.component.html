@@ -5,7 +5,7 @@
         <h3>Restourants</h3>
         <ul>
           <li *ngFor="let restourant of restourants | async">
-            <a [routerLink]="['/']" 
+            <a [routerLink]="['/restourants', restourant.id]" 
                routerLinkActive="active"
                [routerLinkActiveOptions]="{ exact: true }">{{restourant.name}}</a>
           </li>

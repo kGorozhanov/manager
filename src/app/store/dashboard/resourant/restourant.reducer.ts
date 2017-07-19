@@ -11,6 +11,10 @@ export interface RestourantTriggers<T> {
     ADD: T;
     ADD_SUCCESS: T;
     ADD_ERROR: T;
+    LOAD_SELECTED: T;
+    LOAD_SELECTED_SUCCESS: T;
+    LOAD_SELECTED_ERROR: T;
+    RESET_SELECTED: T;
 }
 
 export interface Restourant {
@@ -23,12 +27,15 @@ export interface RestourantState {
     list: Restourant[];
     loadStatus?: string;
     addStatus?: string;
+    selected: Restourant;
+    selectedStatus?: string;
 }
 
 export const MODULE_NAME = 'RESTOURANT';
 
 export const initialState: RestourantState = {
-    list: []
+    list: [],
+    selected: null
 };
 
 export const reducedItems: RestourantTriggers<Function> = {
@@ -53,7 +60,8 @@ export const reducedItems: RestourantTriggers<Function> = {
     },
     RESET: (state: RestourantState, action: Action): RestourantState => {
         return {
-            list: []
+            list: [],
+            selected: null
         }
     },
     ADD:  (state: RestourantState, action: Action): RestourantState => {
@@ -76,6 +84,34 @@ export const reducedItems: RestourantTriggers<Function> = {
         return {
             ...state,
             addStatus: 'error'
+        }
+    },
+    LOAD_SELECTED: (state: RestourantState, action: Action): RestourantState => {
+        return {
+            ...state,
+            selected: null,
+            selectedStatus: 'sending'
+        }
+    },
+    LOAD_SELECTED_SUCCESS: (state: RestourantState, action: Action): RestourantState => {
+        return {
+            ...state,
+            selected: action.payload,
+            selectedStatus: 'success'
+        }
+    },
+    LOAD_SELECTED_ERROR: (state: RestourantState, action: Action): RestourantState => {
+        return {
+            ...state,
+            selected: null,
+            selectedStatus: 'error'
+        }
+    },
+    RESET_SELECTED: (state: RestourantState, action: Action): RestourantState => {
+        return {
+            ...state,
+            selected: null,
+            selectedStatus: null
         }
     }
 };
