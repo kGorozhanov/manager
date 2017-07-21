@@ -3,4 +3,4 @@ import { EffectsModule } from '@ngrx/effects';
 
 export const dashboardEffects = [
     EffectsModule.run(RestourantEffects)
-]
+];

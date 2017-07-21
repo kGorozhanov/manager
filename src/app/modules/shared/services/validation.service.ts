@@ -1,6 +1,6 @@
 export class ValidationService {
 	static getValidatorErrorMessage(validatorName: string, validatorValue?: any) {
-		let config = {
+		const config = {
 			'required': 'This field is required',
 			'invalidCreditCard': 'Is invalid credit card number',
 			'invalidEmailAddress': 'Enter a valid email',

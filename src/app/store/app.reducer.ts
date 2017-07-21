@@ -1,9 +1,9 @@
 import { routerReducer, RouterState } from '@ngrx/router-store';
-import { combineReducers } from "@ngrx/store";
+import { combineReducers } from '@ngrx/store';
 
 import { AuthState, authReducer } from './auth/auth.reducer';
-import { MessageState, messageReducer } from "./message/message.reducer";
-import { DashboardState, dashboardReducer } from "./dashboard/dashboard.reducer";
+import { MessageState, messageReducer } from './message/message.reducer';
+import { DashboardState, dashboardReducer } from './dashboard/dashboard.reducer';
 
 export interface AppState {
     router: RouterState;

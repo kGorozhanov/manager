@@ -11,12 +11,12 @@ import 'hammerjs';
 
 import { routes } from './app.routes';
 import { AppComponent } from './app.component';
-import { appReducer } from "app/store/app.reducer";
-import { RouterModule } from "@angular/router";
-import { appEffects } from "app/store/app.effects";
-import { AuthGuard } from "app/services/auth-guard.service";
-import { MdSnackBarModule } from "@angular/material";
-import { LoginGuard } from "app/services/login-guard.serevice";
+import { appReducer } from 'app/store/app.reducer';
+import { RouterModule } from '@angular/router';
+import { appEffects } from 'app/store/app.effects';
+import { AuthGuard } from 'app/services/auth-guard.service';
+import { MdSnackBarModule } from '@angular/material';
+import { LoginGuard } from 'app/services/login-guard.serevice';
 
 @NgModule({
   declarations: [

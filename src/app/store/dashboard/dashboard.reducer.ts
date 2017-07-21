@@ -1,5 +1,5 @@
 import { combineReducers } from '@ngrx/store';
-import { RestourantState, restourantReducer } from "./resourant/restourant.reducer";
+import { RestourantState, restourantReducer } from './resourant/restourant.reducer';
 
 export interface DashboardState {
     restourant: RestourantState

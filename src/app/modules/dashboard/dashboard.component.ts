@@ -4,11 +4,12 @@ import { RESTOURANT_ACTIONS, Restourant } from './../../store/dashboard/resouran
 import { HttpClient } from './../../services/http-client.service';
 import { AUTH_ACTIONS, AuthState, User } from './../../store/auth/auth.reducer';
 import { AppState } from './../../store/app.reducer';
-import { Component, OnInit, OnDestroy } from '@angular/core';
-import { Subscription } from "rxjs/Subscription";
-import { ObservableMedia } from "@angular/flex-layout";
+import { Component, OnInit, OnDestroy, ViewChild } from '@angular/core';
+import { Subscription } from 'rxjs/Subscription';
+import { ObservableMedia } from '@angular/flex-layout';
 import 'rxjs/add/operator/startWith';
-import { Store } from "@ngrx/store";
+import { Store } from '@ngrx/store';
+import { MdSidenav } from '@angular/material';
 
 @Component({
   selector: 'app-dashboard',
@@ -23,6 +24,7 @@ export class DashboardComponent implements OnInit, OnDestroy {
 	public restourants: Observable<Restourant[]>;
 	private mediaWatcher: Subscription;
 	private userSubscription: Subscription;
+	@ViewChild('sidenav') sidenav: MdSidenav;
 
   constructor(
 		private media: ObservableMedia,
@@ -34,7 +36,7 @@ export class DashboardComponent implements OnInit, OnDestroy {
 			.asObservable()
 			.startWith({})
 			.subscribe(() => this.updateMenuMode());
-		
+
 		this.restourants = this.store.select('dashboard')
 			.map((state: DashboardState) => state.restourant.list);
 
@@ -45,9 +47,9 @@ export class DashboardComponent implements OnInit, OnDestroy {
 
 		this.userSubscription = this.user
 			.subscribe((user: User) => {
-				if(!user) return this.store.dispatch(RESTOURANT_ACTIONS.RESET());
-				if(user.role === 'manager') return this.store.dispatch(RESTOURANT_ACTIONS.LOAD());
-			})
+				if (!user) return this.store.dispatch(RESTOURANT_ACTIONS.RESET());
+				if (user.role === 'manager') return this.store.dispatch(RESTOURANT_ACTIONS.LOAD());
+			});
   }
 
   updateMenuMode() {
@@ -61,6 +63,12 @@ export class DashboardComponent implements OnInit, OnDestroy {
 
 	logout() {
 		this.store.dispatch(AUTH_ACTIONS.LOGOUT());
+	}
+
+	onMenuClick() {
+		if (this.menuMode === 'over') {
+			this.sidenav.toggle();
+		}
 	}
 
 	ngOnDestroy() {

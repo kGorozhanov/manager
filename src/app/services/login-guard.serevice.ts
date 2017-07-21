@@ -1,11 +1,11 @@
 import { AppState } from './../store/app.reducer';
-import { CanActivate, RouterStateSnapshot, ActivatedRouteSnapshot } from "@angular/router";
-import { Injectable } from "@angular/core";
-import { Observable } from "rxjs/Observable";
-import { Store } from "@ngrx/store";
-import { AuthState, AUTH_ACTIONS } from "../store/auth/auth.reducer";
+import { CanActivate, RouterStateSnapshot, ActivatedRouteSnapshot } from '@angular/router';
+import { Injectable } from '@angular/core';
+import { Observable } from 'rxjs/Observable';
+import { Store } from '@ngrx/store';
+import { AuthState, AUTH_ACTIONS } from '../store/auth/auth.reducer';
 import 'rxjs/add/operator/distinctUntilChanged';
-import { go } from "@ngrx/router-store";
+import { go } from '@ngrx/router-store';
 
 @Injectable()
 export class LoginGuard implements CanActivate {

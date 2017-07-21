@@ -1,6 +1,6 @@
-import { REDUCER_HELPER } from './../../utils/store-helpers/reducer.helper';
-import { ACTIONS_HELPER } from './../../utils/store-helpers/actions.helper';
-import { CONSTANTS_HELPER } from './../../utils/store-helpers/constants.helper';
+import { REDUCER_HELPER } from '../../utils/store-helpers/reducer.helper';
+import { ACTIONS_HELPER } from '../../utils/store-helpers/actions.helper';
+import { CONSTANTS_HELPER } from '../../utils/store-helpers/constants.helper';
 import { Action } from '@ngrx/store';
 export interface MessageTriggers<T> {
     ADD: T;
@@ -20,7 +20,7 @@ export const MODULE_NAME = 'MESSAGE';
 
 export const reducedItems: MessageTriggers<Function> = {
     ADD: (state: MessageState, action: Action): MessageState => {
-        let message: Message = {
+        const message: Message = {
             text: action.payload,
             id: Date.now()
         };

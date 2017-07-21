@@ -1,9 +1,10 @@
 import { ControlMessagesComponent } from './components/control-messages/control-messages.component';
 import { FlexLayoutModule } from '@angular/flex-layout';
 import { NgModule } from '@angular/core';
-import { CommonModule } from "@angular/common";
+import { CommonModule } from '@angular/common';
 import { MdCardModule, MdButtonModule, MdInputModule, MdToolbarModule, MdSidenavModule } from '@angular/material';
-import { ReactiveFormsModule } from "@angular/forms";
+import { ReactiveFormsModule } from '@angular/forms';
+import {MdTabsModule} from '@angular/material';
 
 @NgModule({
     imports: [
@@ -14,7 +15,8 @@ import { ReactiveFormsModule } from "@angular/forms";
         MdButtonModule,
         MdInputModule,
         MdToolbarModule,
-        MdSidenavModule
+        MdSidenavModule,
+        MdTabsModule
     ],
     declarations: [
         ControlMessagesComponent
@@ -28,6 +30,7 @@ import { ReactiveFormsModule } from "@angular/forms";
         MdInputModule,
         MdToolbarModule,
         MdSidenavModule,
+        MdTabsModule,
         ControlMessagesComponent
     ]
 })

@@ -1,9 +1,9 @@
-import { Subscription } from 'rxjs/Subscription';
-import { MessageState, Message, MESSAGE_ACTIONS } from './store/message/message.reducer';
-import { AppState } from './store/app.reducer';
-import { Component, OnInit, OnDestroy } from '@angular/core';
-import { MdSnackBar } from "@angular/material";
-import { Store } from "@ngrx/store";
+import {Subscription} from 'rxjs/Subscription';
+import {MessageState, Message, MESSAGE_ACTIONS} from './store/message/message.reducer';
+import {AppState} from './store/app.reducer';
+import {Component, OnInit, OnDestroy} from '@angular/core';
+import {MdSnackBar} from '@angular/material';
+import {Store} from '@ngrx/store';
 import 'rxjs/add/operator/filter';
 
 @Component({

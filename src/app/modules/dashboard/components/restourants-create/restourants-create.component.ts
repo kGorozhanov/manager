@@ -1,10 +1,11 @@
-import { RESTOURANT_ACTIONS } from './../../../../store/dashboard/resourant/restourant.reducer';
+import { RESTOURANT_ACTIONS } from '../../../../store/dashboard/resourant/restourant.reducer';
 import { Validators } from '@angular/forms';
 import { FormGroup } from '@angular/forms';
 import { FormBuilder } from '@angular/forms';
-import { AppState } from './../../../../store/app.reducer';
+import { AppState } from '../../../../store/app.reducer';
 import { Store } from '@ngrx/store';
 import { Component, OnInit } from '@angular/core';
+import 'rxjs/add/observable/dom/webSocket';
 
 @Component({
   selector: 'app-restourants-create',
@@ -26,7 +27,7 @@ export class RestourantsCreateComponent implements OnInit {
   }
 
   add() {
-    if(this.form.invalid) {
+    if (this.form.invalid) {
       Object.keys(this.form.controls)
         .forEach(control => this.form.get(control).markAsTouched());
         return false;

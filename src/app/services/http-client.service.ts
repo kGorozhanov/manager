@@ -9,9 +9,9 @@ import {
 	Request,
 	XHRBackend
 } from '@angular/http';
-import {AUTH_ACTIONS, AuthState} from "../store/auth/auth.reducer";
-import {Store} from "@ngrx/store";
-import {AppState} from "../store/app.reducer";
+import {AUTH_ACTIONS, AuthState} from '../store/auth/auth.reducer';
+import {Store} from '@ngrx/store';
+import {AppState} from '../store/app.reducer';
 
 export class HttpClient extends Http {
 	token: string;

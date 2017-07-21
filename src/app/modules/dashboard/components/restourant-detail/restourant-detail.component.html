@@ -2,8 +2,21 @@
   <md-toolbar>
     <div class="page-row">
       <div class="page-container">
-        <span class="page-title">New restourant {{restourant.name}}</span>
+        <span class="page-title">Restourant {{restourant.name}}</span>
       </div>
     </div>
   </md-toolbar>
+  <div class="page-container">
+    <nav md-tab-nav-bar>
+      <a md-tab-link 
+         *ngFor="let tab of tabs" 
+         [routerLink]="['./' + tab.url]" 
+         routerLinkActive 
+         #rla="routerLinkActive" 
+         [active]="rla.isActive">
+        {{tab.label}}
+      </a>
+    </nav>
+    <router-outlet></router-outlet>
+  </div>
 </div>

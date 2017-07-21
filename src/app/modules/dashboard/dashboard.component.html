@@ -3,16 +3,14 @@
     <nav>
       <div class="restourants-nav" *ngIf="isManager | async">
         <h3>Restourants</h3>
-        <ul>
+        <ul (click)="onMenuClick()">
           <li *ngFor="let restourant of restourants | async">
             <a [routerLink]="['/restourants', restourant.id]" 
-               routerLinkActive="active"
-               [routerLinkActiveOptions]="{ exact: true }">{{restourant.name}}</a>
+               routerLinkActive="active">{{restourant.name}}</a>
           </li>
           <li>
             <a routerLink="/restourants/new" 
-               routerLinkActive="active"
-               [routerLinkActiveOptions]="{ exact: true }">New</a>
+               routerLinkActive="active">New</a>
           </li>
         </ul>
       </div>

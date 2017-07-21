@@ -1,6 +1,6 @@
-import { REDUCER_HELPER } from './../../utils/store-helpers/reducer.helper';
-import { ACTIONS_HELPER } from './../../utils/store-helpers/actions.helper';
-import { CONSTANTS_HELPER } from './../../utils/store-helpers/constants.helper';
+import { REDUCER_HELPER } from '../../utils/store-helpers/reducer.helper';
+import { ACTIONS_HELPER } from '../../utils/store-helpers/actions.helper';
+import { CONSTANTS_HELPER } from '../../utils/store-helpers/constants.helper';
 import { Action } from '@ngrx/store';
 declare const localStorage: any;
 
@@ -92,7 +92,7 @@ export const initialState: AuthState = {
     token: savedToken,
     isLoggedIn: !!savedToken,
     user: savedUser
-}
+};
 
 export const AUTH_CONSTANTS = CONSTANTS_HELPER<AuthTriggers<string>>(MODULE_NAME, reducedItems);
 export const AUTH_ACTIONS = ACTIONS_HELPER<AuthTriggers<Function>>(AUTH_CONSTANTS);

@@ -3,8 +3,8 @@ import { AUTH_ACTIONS, AuthState } from './../../store/auth/auth.reducer';
 import { AppState } from './../../store/app.reducer';
 import { ValidationService } from './../shared/services/validation.service';
 import { Component, OnInit } from '@angular/core';
-import { FormGroup, FormBuilder, Validators } from "@angular/forms";
-import { Store } from "@ngrx/store";
+import { FormGroup, FormBuilder, Validators } from '@angular/forms';
+import { Store } from '@ngrx/store';
 
 @Component({
   selector: 'app-login',
@@ -31,7 +31,7 @@ export class LoginComponent implements OnInit {
   }
 
   login() {
-    if(this.form.invalid) {
+    if (this.form.invalid) {
       Object.keys(this.form.controls)
         .forEach(control => this.form.get(control).markAsTouched());
         return false;
